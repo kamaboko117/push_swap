@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:36:53 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 16:30:14 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:24:45 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ void	push(t_stack *src, t_stack *dst);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 
-void	sa(t_data *data);
-void	sb(t_data *data);
-void	ss(t_data *data);
+char	*sa(t_data *data);
+char	*sb(t_data *data);
+char	*ss(t_data *data);
 
-void	pa(t_data *data);
-void	pb(t_data *data);
+char	*pa(t_data *data);
+char	*pb(t_data *data);
 
-void	ra(t_data *data);
-void	rb(t_data *data);
-void	rr(t_data *data);
+char	*ra(t_data *data);
+char	*rb(t_data *data);
+char	*rr(t_data *data);
 
-void	rra(t_data *data);
-void	rrb(t_data *data);
-void	rrr(t_data *data);
+char	*rra(t_data *data);
+char	*rrb(t_data *data);
+char	*rrr(t_data *data);
 #endif

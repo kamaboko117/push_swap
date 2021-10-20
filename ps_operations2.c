@@ -6,34 +6,39 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:15:12 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 16:28:12 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:22:59 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_data *data)
+char	*ra(t_data *data)
 {
 	rotate(data->a);
+	return ("ra\n");
 }
 
-void	rb(t_data *data)
+char	*rb(t_data *data)
 {
 	rotate(data->b);
+	return ("rb\n");
 }
 
-void	rr(t_data *data)
+char	*rr(t_data *data)
 {
 	rotate(data->a);
 	rotate(data->b);
+	return ("rr\n");
 }
 
-void	rra(t_data *data)
+char	*rra(t_data *data)
 {
 	reverse_rotate(data->a);
+	return ("rra\n");
 }
 
-void	rrb(t_data *data)
+char	*rrb(t_data *data)
 {
 	reverse_rotate(data->b);
+	return ("rrb\n");
 }
