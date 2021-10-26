@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:28:34 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 20:08:00 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/26 13:09:38 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,9 @@ void	the_search(t_data *data)
 		}
 		i++;
 	}
+	ft_putnbr_fd(k, 1);
 	i = -1;
-	while (i++ < k)
+	while (++i < k)
 		ft_putstr_fd(ra(data), 1);
 	if (!is_sorted(data->a))
 	{	
@@ -113,6 +114,11 @@ void	the_search(t_data *data)
 	while (!isempty(data->b))
 		ft_putstr_fd(pa(data), 1);
 }
+
+/*void	the_search_but_better(t_data *data)
+{
+	
+}*/
 
 void	push_swap(t_data *data)
 {
@@ -139,6 +145,7 @@ void	init_push_swap(int ac, char **av)
 	b.size = 0;
 	data.a = &a;
 	data.b = &b;
+	data.operations = 0;
 	i = 1;
 	while (i < ac)
 	{

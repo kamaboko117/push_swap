@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:36:53 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 18:24:45 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:17:55 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_data
 {
 	t_stack *a;
 	t_stack	*b;
+	int		operations;
 }				t_data;
 
 int	isempty(t_stack *stack);
