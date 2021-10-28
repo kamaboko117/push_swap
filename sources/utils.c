@@ -6,12 +6,12 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:23:25 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 16:26:09 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:16:55 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "libft/libft.h"
+#include "../push_swap.h"
+#include "../libft/libft.h"
 
 int	isempty(t_stack *stack)
 {
@@ -54,4 +54,18 @@ void	display_stacks(t_data *data)
 {
 	display_stack(data->a);
 	display_stack(data->b);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		if (stack->stack[i] > stack->stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

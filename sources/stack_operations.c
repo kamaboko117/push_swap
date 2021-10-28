@@ -6,11 +6,11 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:08:20 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 16:34:06 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:16:06 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pop(t_stack *stack)
 {

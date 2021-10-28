@@ -6,19 +6,23 @@
 #    By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/21 14:20:20 by asaboure          #+#    #+#              #
-#    Updated: 2021/10/20 16:31:14 by asaboure         ###   ########.fr        #
+#    Updated: 2021/10/28 19:54:21 by asaboure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
 
 SRCS	=	push_swap.c															\
-			stack_operations.c													\
-			ps_operations.c														\
-			ps_operations2.c													\
-			utils.c																\
-			ps_operations3.c													\
-			stack_operations2.c
+			sources/stack_operations.c											\
+			sources/ps_operations.c												\
+			sources/ps_operations2.c											\
+			sources/utils.c														\
+			sources/ps_operations3.c											\
+			sources/stack_operations2.c											\
+			sources/utils2.c													\
+			sources/algorithmics.c												\
+			sources/algorithmics2.c												\
+			sources/algorithmics3.c
 			
 LIBFTSRCS = ft_memccpy.c														\
 			ft_memchr.c															\

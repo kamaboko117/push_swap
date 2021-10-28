@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:28:34 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/26 13:09:38 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:57:11 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,93 +38,12 @@ void	check_args(int ac, char **av)
 	}
 }
 
-int	is_sorted(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->size - 1)
-	{
-		if (stack->stack[i] > stack->stack[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-/*The wheel will occasionally work... often it will just spin indefinitely: do
-not use this*/
-void	the_wheel(t_data *data)
-{
-	display_stacks(data);
-	while (!is_sorted(data->a))
-	{
-		if (data->a->stack[0] < data->a->stack[1])
-			ft_putstr_fd(ra(data), 1);
-		else
-		{
-			ft_putstr_fd(ra(data), 1);
-			if (!is_sorted(data->a))
-				ft_putstr_fd(pb(data), 1);
-		}
-	}
-	display_stacks(data);
-	while (!isempty(data->b))
-	{
-		if (data->b->stack[0] < data->a->stack[0])
-			ft_putstr_fd(pa(data), 1);
-		else
-			ft_putstr_fd(ra(data), 1);
-	}
-	while (!is_sorted(data->a))
-		ft_putstr_fd(rra(data), 1);
-	display_stacks(data);
-}
-
-/*The search rotates the A stack until it finds the Minimum. It pushes it into B
-and then continues until A is sorted, at which point B should be reverse sorted,
-it then pushes to A until B is empty. This should always sort A*/
-void	the_search(t_data *data)
-{
-	int	i;
-	int	k;
-	int	tmp;
-
-	i = 0;
-	k = 0;
-	tmp = data->a->stack[0];
-	while (i < data->a->size)
-	{
-		if (tmp > data->a->stack[i])
-		{
-			k = i;
-			tmp = data->a->stack[i];
-		}
-		i++;
-	}
-	ft_putnbr_fd(k, 1);
-	i = -1;
-	while (++i < k)
-		ft_putstr_fd(ra(data), 1);
-	if (!is_sorted(data->a))
-	{	
-		ft_putstr_fd(pb(data), 1);
-		the_search(data);
-	}
-	while (!isempty(data->b))
-		ft_putstr_fd(pa(data), 1);
-}
-
-/*void	the_search_but_better(t_data *data)
-{
-	
-}*/
-
 void	push_swap(t_data *data)
 {
 	display_stacks(data);
-	the_search(data);
+	the_search_but_better(data);
 	display_stacks(data);
+	printf("operations: %d\n", data->operations);
 }
 
 void	init_push_swap(int ac, char **av)

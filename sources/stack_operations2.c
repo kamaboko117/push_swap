@@ -6,12 +6,12 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:29:48 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/20 16:32:00 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:17:19 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "libft/libft.h"
+#include "../push_swap.h"
+#include "../libft/libft.h"
 
 void	pop_push(t_data *data)
 {
