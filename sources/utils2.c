@@ -6,11 +6,12 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:08:26 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/28 20:02:19 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:48:06 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdlib.h>
 
 static void	qs_swap(int *a, int *b)
 {
@@ -49,10 +50,14 @@ void	quicksort(int tab[], int first, int last)
 	}
 }
 
-void	init_index(int *index, t_data *data)
+int	*init_index(t_data *data)
 {
 	int	i;
+	int	*index;
 
+	index = (int *)malloc(sizeof(int) * data->a->size);
+	if (index == NULL)
+		return (NULL);
 	i = 0;
 	while (i < data->a->size)
 	{
@@ -60,6 +65,7 @@ void	init_index(int *index, t_data *data)
 		i++;
 	}
 	quicksort(index, 0, data->a->size - 1);
+	return (index);
 }
 
 int	is_stack_higher(int x, t_stack *b)
