@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:36:53 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/29 14:35:23 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/10/29 17:25:26 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pop_push(t_data *data);
 void	quicksort(int tab[], int first, int last);
 int		is_sorted(t_stack *stack);
 int		*init_index(t_data *data);
-void	the_search_but_better(t_data *data);
+void	the_search_but_better(t_data *data, int ratio);
 int		scan_first_hold(int *index, t_data *data);
 int		scan_second_hold(int *index, t_data *data);
 void	bring_first_top(t_data *data, int first_hold);
@@ -42,6 +42,7 @@ int		is_stack_higher(int x, t_stack *b);
 int		is_stack_lower(int x, t_stack *b);
 void	bring_highest_to_top(t_data *data);
 void	bring_lowest_to_top(t_data *data);
+void	the_search(t_data *data);
 
 void	realpush(int nb, t_stack *stack);
 void	pop(t_stack *stack);
