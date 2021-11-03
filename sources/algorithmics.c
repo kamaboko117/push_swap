@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:20:38 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/01 18:49:22 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:17:49 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 /*The search rotates the A stack until it finds the Minimum. It pushes it into B
 and then continues until A is sorted, at which point B should be reverse sorted,
-it then pushes to A until B is empty. This should always sort A*/
+it then pushes to A until B is empty. This should always sort A
 
 void	the_search(t_data *data)
 {
@@ -56,12 +56,13 @@ void	the_search(t_data *data)
 	while (!isempty(data->b))
 		ft_putstr_fd(pa(data), 1);
 }
+*/
 
-void	sorted_insert(t_data *data)
+static void	sorted_insert(t_data *data)
 {
 	while (data->a->stack[0] < data->b->stack[0])
 		ft_putstr_fd(rb(data), 1);
-	while (data->a->stack[0] > data->b->stack[data->b->size - 1])// && data->a->stack[0] < data->b->stack[0])
+	while (data->a->stack[0] > data->b->stack[data->b->size - 1])
 		ft_putstr_fd(rrb(data), 1);
 	ft_putstr_fd(pb(data), 1);
 }
@@ -93,10 +94,22 @@ void	push_all_to_a(t_data *data)
 		ft_putstr_fd(pa(data), 1);
 }
 
+void	index_search(t_data *data, int ratio, int *index, int j)
+{
+	int	i;
+
+	i = 0;
+	while (i < (data->a->size + data->b->size) / ratio)
+	{
+		chunk_search(index + (((data->a->size + data->b->size) / ratio) * j),
+			data);
+		i++;
+	}
+}
+
 void	the_search_but_better(t_data *data, int ratio)
 {
 	int	*index;
-	int	i;
 	int	j;
 
 	index = init_index(data);
@@ -105,15 +118,11 @@ void	the_search_but_better(t_data *data, int ratio)
 	j = 0;
 	while (j < ratio)
 	{
-		i = 0;
-		while (i < (data->a->size + data->b->size) / ratio)
-		{
-			chunk_search(index + (((data->a->size + data->b->size) / ratio) * j),
-				data);
-			i++;
-		}
+		index_search(data, ratio, index, j);
 		j++;
 	}
+	if (!isempty(data->a))
+		index_search(data, ratio, index, j);
 	bring_highest_to_top(data);
 	push_all_to_a(data);
 }

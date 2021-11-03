@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:36:53 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/29 17:25:26 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:13:50 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int		is_stack_lower(int x, t_stack *b);
 void	bring_highest_to_top(t_data *data);
 void	bring_lowest_to_top(t_data *data);
 void	the_search(t_data *data);
+void	sort_three_stack(t_data *data);
+void	sort_five_stack(t_data *data);
+void	init_args(int ac, char **av);
+void	push_swap(t_data *data);
 
 void	realpush(int nb, t_stack *stack);
 void	pop(t_stack *stack);

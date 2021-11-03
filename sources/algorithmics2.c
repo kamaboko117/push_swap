@@ -6,12 +6,39 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:46:46 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/28 19:56:25 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:16:24 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../libft/libft.h"
+
+void	sort_three_stack(t_data *data)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = data->a->stack[0];
+	b = data->a->stack[1];
+	c = data->a->stack[2];
+	if (a > b && a < c && b < c)
+		ft_putstr_fd(sa(data), 1);
+	if (a > b && a > c && b > c)
+	{
+		ft_putstr_fd(sa(data), 1);
+		ft_putstr_fd(rra(data), 1);
+	}
+	if (a > c && b < c && a > c)
+		ft_putstr_fd(ra(data), 1);
+	if (a < b && a < c && b > c)
+	{
+		ft_putstr_fd(sa(data), 1);
+		ft_putstr_fd(ra(data), 1);
+	}
+	if (a < b && a > c && b > c)
+		ft_putstr_fd(rra(data), 1);
+}
 
 int	scan_first_hold(int *index, t_data *data)
 {

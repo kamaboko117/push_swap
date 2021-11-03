@@ -6,14 +6,14 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:53:50 by asaboure          #+#    #+#             */
-/*   Updated: 2021/10/29 14:13:37 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:03:16 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../libft/libft.h"
 
-static void	tmp_rotate(int tmp, t_data *data)
+static void	tmp_rotate_b(int tmp, t_data *data)
 {
 	while (tmp > 0)
 	{
@@ -22,7 +22,7 @@ static void	tmp_rotate(int tmp, t_data *data)
 	}
 }
 
-static void	tmp_reverse_rotate(int tmp, t_data *data)
+static void	tmp_reverse_rotate_b(int tmp, t_data *data)
 {
 	while (tmp < data->b->size)
 	{
@@ -50,9 +50,9 @@ void	bring_lowest_to_top(t_data *data)
 		}
 	}
 	if (tmp <= data->b->size / 2)
-		tmp_rotate(tmp, data);
+		tmp_rotate_b(tmp, data);
 	else
-		tmp_reverse_rotate(tmp, data);
+		tmp_reverse_rotate_b(tmp, data);
 }
 
 void	bring_highest_to_top(t_data *data)
@@ -65,6 +65,7 @@ void	bring_highest_to_top(t_data *data)
 		return ;
 	i = -1;
 	k = data->b->stack[0];
+	tmp = 0;
 	while (++i < data->b->size)
 	{
 		if (k < data->b->stack[i])
@@ -74,7 +75,7 @@ void	bring_highest_to_top(t_data *data)
 		}
 	}
 	if (tmp <= data->b->size / 2)
-		tmp_rotate(tmp, data);
+		tmp_rotate_b(tmp, data);
 	else
-		tmp_reverse_rotate(tmp, data);
+		tmp_reverse_rotate_b(tmp, data);
 }
