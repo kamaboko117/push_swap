@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:20:38 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:17:49 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:16:25 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	the_search_but_better(t_data *data, int ratio)
 		index_search(data, ratio, index, j);
 		j++;
 	}
-	if (!isempty(data->a))
+	while (!isempty(data->a))
 		index_search(data, ratio, index, j);
 	bring_highest_to_top(data);
 	push_all_to_a(data);

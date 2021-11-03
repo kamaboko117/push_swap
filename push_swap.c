@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:28:34 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:23:18 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:16:42 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,17 @@ void	check_args(int ac, char **av)
 	}
 }
 
+void	sort_two_stack(t_data *data)
+{
+	if (!is_sorted(data->a))
+		ft_putstr_fd(sa(data), 1);
+}
+
 void	push_swap(t_data *data)
 {
 //	display_stacks(data);
+	if (data->a->size == 2)
+		sort_two_stack(data);
 	if (data->a->size == 3)
 		sort_three_stack(data);
 	if (data->a->size > 3 && data->a->size <= 5)
@@ -67,7 +75,6 @@ void	push_swap(t_data *data)
 
 /*will need to check that the numbers in the stack do not repeat.
 check leaks on malloc errors
-doesn't work on lists of 2
 doesn't work on lists of 8
 doesn't work on lists of 9
 14etc*/
