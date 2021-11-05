@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:46:46 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:16:24 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:28:45 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sort_three_stack(t_data *data)
 		ft_putstr_fd(rra(data), 1);
 }
 
-int	scan_first_hold(int *index, t_data *data)
+int	scan_first_hold(int *index, t_data *data, int ratio)
 {
 	int	i;
 	int	j;
@@ -49,7 +49,7 @@ int	scan_first_hold(int *index, t_data *data)
 	while (i < data->a->size)
 	{
 		j = 0;
-		while (j < (data->a->size + data->b->size) / 5)
+		while (j < (data->a->size + data->b->size) / ratio)
 		{
 			if (data->a->stack[i] == index[j])
 				return (i);
@@ -60,7 +60,7 @@ int	scan_first_hold(int *index, t_data *data)
 	return (0);
 }
 
-int	scan_second_hold(int *index, t_data *data)
+int	scan_second_hold(int *index, t_data *data, int ratio)
 {
 	int	i;
 	int	j;
@@ -69,7 +69,7 @@ int	scan_second_hold(int *index, t_data *data)
 	while (i > 0)
 	{
 		j = 0;
-		while (j < (data->a->size + data->b->size) / 5)
+		while (j < (data->a->size + data->b->size) / ratio)
 		{
 			if (data->a->stack[i] == index[j])
 				return (i);

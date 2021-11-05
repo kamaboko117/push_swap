@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:20:38 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 15:16:25 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:47:30 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,36 @@ void	the_search(t_data *data)
 
 static void	sorted_insert(t_data *data)
 {
-	while (data->a->stack[0] < data->b->stack[0])
-		ft_putstr_fd(rb(data), 1);
-	while (data->a->stack[0] > data->b->stack[data->b->size - 1])
-		ft_putstr_fd(rrb(data), 1);
+	int	i;
+
+	if (data->a->stack[0] < data->b->stack[data->b->size - 1] && data->a
+		->stack[0] > data->b->stack[0])
+	{
+		ft_putstr_fd(pb(data), 1);
+		return ;
+	}
+	i = 1;
+	while (i < data->b->size)
+	{
+		if (data->a->stack[0] > data->b->stack[i] && data->a->stack[0] < data->b
+			->stack[i - 1])
+			break ;
+		i++;
+	}
+	if (i <= data->b->size / 2)
+		tmp_rotate_b(i, data);
+	else
+		tmp_reverse_rotate_b(i, data);
 	ft_putstr_fd(pb(data), 1);
 }
 
-void	chunk_search(int *index, t_data *data)
+void	chunk_search(int *index, t_data *data, int ratio)
 {
 	int	first_hold;
 	int	second_hold;
 
-	first_hold = scan_first_hold(index, data);
-	second_hold = scan_second_hold(index, data);
+	first_hold = scan_first_hold(index, data, ratio);
+	second_hold = scan_second_hold(index, data, ratio);
 	if (first_hold <= data->a->size - second_hold)
 		bring_first_top(data, first_hold);
 	else
@@ -102,7 +118,7 @@ void	index_search(t_data *data, int ratio, int *index, int j)
 	while (i < (data->a->size + data->b->size) / ratio)
 	{
 		chunk_search(index + (((data->a->size + data->b->size) / ratio) * j),
-			data);
+			data, ratio);
 		i++;
 	}
 }

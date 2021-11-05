@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:36:53 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:13:50 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:46:47 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	quicksort(int tab[], int first, int last);
 int		is_sorted(t_stack *stack);
 int		*init_index(t_data *data);
 void	the_search_but_better(t_data *data, int ratio);
-int		scan_first_hold(int *index, t_data *data);
-int		scan_second_hold(int *index, t_data *data);
+int		scan_first_hold(int *index, t_data *data, int ratio);
+int		scan_second_hold(int *index, t_data *data, int ratio);
 void	bring_first_top(t_data *data, int first_hold);
 void	bring_second_top(t_data *data, int first_hold);
 int		is_stack_higher(int x, t_stack *b);
@@ -47,6 +47,8 @@ void	sort_three_stack(t_data *data);
 void	sort_five_stack(t_data *data);
 void	init_args(int ac, char **av);
 void	push_swap(t_data *data);
+void	tmp_rotate_b(int tmp, t_data *data);
+void	tmp_reverse_rotate_b(int tmp, t_data *data);
 
 void	realpush(int nb, t_stack *stack);
 void	pop(t_stack *stack);

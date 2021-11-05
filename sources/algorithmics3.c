@@ -6,14 +6,14 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:53:50 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:03:16 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:46:16 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../libft/libft.h"
 
-static void	tmp_rotate_b(int tmp, t_data *data)
+void	tmp_rotate_b(int tmp, t_data *data)
 {
 	while (tmp > 0)
 	{
@@ -22,7 +22,7 @@ static void	tmp_rotate_b(int tmp, t_data *data)
 	}
 }
 
-static void	tmp_reverse_rotate_b(int tmp, t_data *data)
+void	tmp_reverse_rotate_b(int tmp, t_data *data)
 {
 	while (tmp < data->b->size)
 	{

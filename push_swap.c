@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:28:34 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 15:16:42 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:48:29 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	sort_two_stack(t_data *data)
 
 void	push_swap(t_data *data)
 {
-//	display_stacks(data);
 	if (data->a->size == 2)
 		sort_two_stack(data);
 	if (data->a->size == 3)
@@ -65,19 +64,10 @@ void	push_swap(t_data *data)
 		the_search_but_better(data, 5);
 	if (data->a->size >= 500)
 		the_search_but_better(data, 11);
-//	display_stacks(data);
-/*	if (is_sorted(data->a))
-		printf("A is sorted. GG\n");
-	else
-		printf("epic fail\n");
-	printf("operations: %d\n", data->operations);*/
 }
 
 /*will need to check that the numbers in the stack do not repeat.
-check leaks on malloc errors
-doesn't work on lists of 8
-doesn't work on lists of 9
-14etc*/
+check leaks on malloc errors*/
 int	main(int ac, char **av)
 {
 	if (ac < 2)
