@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:11:10 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:13:19 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:29:34 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,65 @@ void	init_push_swap(int count, char **args)
 
 	a.stack = (int *)malloc(sizeof(int) * count);
 	if (a.stack == NULL)
-		exit(0);
+		exit_failure(args);
 	a.size = count;
 	b.stack = (int *)malloc(sizeof(int) * count);
 	if (b.stack == NULL)
-		exit(0);
+		exit_free_a(a.stack, args);
 	ft_bzero(b.stack, a.size * sizeof(int));
 	b.size = 0;
 	data.a = &a;
 	data.b = &b;
 	data.operations = 0;
-	i = 0;
-	while (i < count)
-	{
+	i = -1;
+	while (++i < count)
 		a.stack[i] = ft_atoi(args[i]);
+	free_split(args);
+	push_swap(&data);
+	free(a.stack);
+	free(b.stack);
+}
+
+void	check_repeat(char **args)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (args[i])
+	{
+		j = 0;
+		while (args[j])
+		{
+			if (ft_atoi(args[i]) == ft_atoi(args[j]) && i != j)
+			{
+				ft_putstr_fd("Error\nStack should not contain repetitions\n",
+					1);
+				free_split(args);
+				exit(0);
+			}
+			j++;
+		}
 		i++;
 	}
-	push_swap(&data);
+}
+
+void	check_overflow(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		if (ft_atol(args[i]) > 2147483647L || ft_atol(args[i]) < -2147483647
+			|| ft_strlen(args[i]) > 12)
+		{
+			ft_putstr_fd("Error\nSome arguments are too small/big\n", 1);
+			free_split(args);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
 }
 
 /*only free here if strjoin is used*/
@@ -49,15 +91,18 @@ void	init_args(int ac, char **av)
 	char	**split;
 	int		i;
 
-	args = av[1];
+	args = ft_strdup(av[1]);
 	i = 2;
 	while (i < ac)
 	{
-		args = ft_strjoin(args, " ");
-		args = ft_strjoin(args, av[i]);
+		ft_strjoin_free(&args, " ");
+		ft_strjoin_free(&args, av[i]);
 		i++;
 	}
 	split = ft_split(args, ' ');
+	free(args);
+	check_overflow(split);
+	check_repeat(split);
 	i = 0;
 	while (split[i])
 		i++;

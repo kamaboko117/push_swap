@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:20:38 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/05 16:47:30 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:30:03 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	the_search_but_better(t_data *data, int ratio)
 
 	index = init_index(data);
 	if (index == NULL)
-		exit(0);
+		exit_search(data);
 	j = 0;
 	while (j < ratio)
 	{
@@ -141,4 +141,5 @@ void	the_search_but_better(t_data *data, int ratio)
 		index_search(data, ratio, index, j);
 	bring_highest_to_top(data);
 	push_all_to_a(data);
+	free(index);
 }

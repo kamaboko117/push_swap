@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:36:53 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/05 16:46:47 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:30:19 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ void	init_args(int ac, char **av);
 void	push_swap(t_data *data);
 void	tmp_rotate_b(int tmp, t_data *data);
 void	tmp_reverse_rotate_b(int tmp, t_data *data);
+long	ft_atol(const char *str);
+void	exit_free_a(int *a, char **args);
+void	exit_failure(char **args);
+void	free_split(char **str);
+void	exit_search(t_data *data);
 
 void	realpush(int nb, t_stack *stack);
 void	pop(t_stack *stack);

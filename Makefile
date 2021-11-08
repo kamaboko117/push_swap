@@ -6,7 +6,7 @@
 #    By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/21 14:20:20 by asaboure          #+#    #+#              #
-#    Updated: 2021/11/03 14:12:32 by asaboure         ###   ########.fr        #
+#    Updated: 2021/11/08 13:22:10 by asaboure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS	=	push_swap.c															\
 			sources/algorithmics2.c												\
 			sources/algorithmics3.c												\
 			sources/algorithmics4.c												\
-			sources/init.c
+			sources/init.c														\
+			sources/utils3.c
 			
 LIBFTSRCS = ft_memccpy.c														\
 			ft_memchr.c															\
