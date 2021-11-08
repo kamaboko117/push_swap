@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:11:10 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/08 13:29:34 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:40:00 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	check_overflow(char **args)
 	}
 }
 
-/*only free here if strjoin is used*/
 void	init_args(int ac, char **av)
 {
 	char	*args;

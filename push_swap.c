@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:28:34 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/05 17:09:06 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:40:49 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	push_swap(t_data *data)
 		the_search_but_better(data, 11);
 }
 
-/*check leaks on malloc errors*/
 int	main(int ac, char **av)
 {
 	if (ac < 2)
