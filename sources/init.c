@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:11:10 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/08 13:40:00 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:45:41 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	check_overflow(char **args)
 		if (ft_atol(args[i]) > 2147483647L || ft_atol(args[i]) < -2147483647
 			|| ft_strlen(args[i]) > 12)
 		{
-			ft_putstr_fd("Error\nSome arguments are too small/big\n", 1);
+			ft_putstr_fd("Error\n", 1);
 			free_split(args);
 			exit(EXIT_FAILURE);
 		}

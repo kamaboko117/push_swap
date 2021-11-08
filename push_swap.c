@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:28:34 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/08 13:40:49 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/08 14:05:45 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	sort_two_stack(t_data *data)
 
 void	push_swap(t_data *data)
 {
+	if (is_sorted(data->a))
+		return ;
 	if (data->a->size == 2)
 		sort_two_stack(data);
 	if (data->a->size == 3)
@@ -69,7 +71,7 @@ void	push_swap(t_data *data)
 int	main(int ac, char **av)
 {
 	if (ac < 2)
-		usage();
+		return (0);
 	check_args(ac, av);
 	init_args(ac, av);
 	return (1);
