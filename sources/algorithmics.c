@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:20:38 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/08 13:30:03 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/15 16:39:16 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	chunk_search(int *index, t_data *data, int ratio)
 
 void	push_all_to_a(t_data *data)
 {
-	while (!isempty(data->b))
+	while (data->b->size > 0)
 		ft_putstr_fd(pa(data), 1);
 }
 
@@ -137,7 +137,7 @@ void	the_search_but_better(t_data *data, int ratio)
 		index_search(data, ratio, index, j);
 		j++;
 	}
-	while (!isempty(data->a))
+	while (data->a->size > 0)
 		index_search(data, ratio, index, j);
 	bring_highest_to_top(data);
 	push_all_to_a(data);

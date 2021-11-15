@@ -6,7 +6,7 @@
 /*   By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:03:42 by asaboure          #+#    #+#             */
-/*   Updated: 2021/11/03 14:14:49 by asaboure         ###   ########.fr       */
+/*   Updated: 2021/11/15 16:40:00 by asaboure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	sort_five_stack(t_data *data)
 	while (data->a->size > 3)
 		ft_putstr_fd(pb(data), 1);
 	sort_three_stack(data);
-	while (!isempty(data->b))
+	while (data->b->size > 0)
 	{
 		if (is_stack_higher(data->b->stack[0], data->a)
 			|| is_stack_lower(data->b->stack[0], data->a))

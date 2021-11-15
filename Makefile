@@ -6,7 +6,7 @@
 #    By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/21 14:20:20 by asaboure          #+#    #+#              #
-#    Updated: 2021/11/08 13:22:10 by asaboure         ###   ########.fr        #
+#    Updated: 2021/11/15 16:06:40 by asaboure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,11 +86,11 @@ CFLAGS	= -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 
-LIBS	= -L${LIBMLX_DIR} -lmlx -lXext -lX11 -lm -L${LIBFT_DIR} -lft
+LIBS	= -L${LIBFT_DIR} -lft
 
 RM		= rm -f
 
-${NAME}:	${LIBFT} ${MLXHEADER} ${LIBMLX} ${OBJS}
+${NAME}:	${LIBFT} ${OBJS}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBS}
 
 .c.o:
